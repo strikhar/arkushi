@@ -62,7 +62,7 @@
         <!-- Poet Info -->
         <section class="flex flex-col md:flex-row items-center md:items-start gap-10 mb-10">
             <div class="flex-shrink-0">
-                <img id="poet-image" src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="w-48 h-48 rounded-full object-cover shadow-lg cursor-pointer">
+                <img id="poet-image" src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="w-48 h-48 rounded-full object-cover shadow-lg cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
             </div>
             <div class="text-center md:text-left">
                 <h1 class="text-5xl font-bold text-zinc-900"><%= poet.firstName %> <%= poet.lastName %></h1>
@@ -92,45 +92,86 @@
     </main>
 
     <!-- Image Modal -->
-    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center hidden z-50 p-4">
-        <div class="relative">
-            <img src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-xl">
-            <button id="close-modal-btn" class="absolute -top-2 -right-2 text-white bg-zinc-900 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold">&times;</button>
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex justify-center items-center z-50 p-4 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none">
+        <div class="relative transform transition-transform duration-300 ease-in-out scale-95">
+            <img src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+            <button id="close-modal" class="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold leading-none">&times;</button>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const poetImage = document.getElementById('poet-image');
-            const modal = document.getElementById('image-modal');
-            const closeModalBtn = document.getElementById('close-modal-btn');
+        const poetImage = document.getElementById('poet-image');
+        const modal = document.getElementById('image-modal');
+        const modalContent = modal.querySelector('.relative');
+        const closeModal = document.getElementById('close-modal');
 
-            if (poetImage && modal && closeModalBtn) {
-                const openModal = () => {
-                    modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                };
+        const openModal = () => {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+        };
 
-                const closeModal = () => {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = '';
-                };
+        const hideModal = () => {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.add('scale-95');
+        };
 
-                poetImage.addEventListener('click', openModal);
-                closeModalBtn.addEventListener('click', closeModal);
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                        closeModal();
-                    }
-                });
-            }
+        poetImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal();
+        });
+
+        closeModal.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hideModal();
+        });
+
+        modal.addEventListener('click', () => {
+            hideModal();
+        });
+
+        modalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     </script>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-white w-full">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="/icons/Logo-small.svg" alt="Аркуші" class="h-10 mb-4">
+                    <p class="text-stone-400 text-sm">Найбільша віртуальна бібліотека української поезії.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Навіґація</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/poets" class="text-stone-400 hover:text-white">Поети</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Колекції</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Про проєкт</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Допомогти</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Соціальні мережі</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-stone-400 hover:text-white">Instagram</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Telegram</a></li>
+                        <li><a href="#" class="text-stone-400 hover:text-white">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Підписатись на розсилку</h3>
+                    <form class="flex">
+                        <input type="email" placeholder="Ваш e-mail" class="bg-zinc-800 border border-zinc-700 rounded-l-lg px-4 py-2 text-white w-full">
+                        <button class="bg-red-600 rounded-r-lg px-4 py-2 font-medium">Підписатись</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 mt-8 pt-6 text-center text-stone-500 text-sm">
+                <p>&copy; 2024 Аркуші. Усі права захищено.</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html> 
