@@ -3,62 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= poem.title %> - <%= poet.firstName %> <%= poet.lastName %> - Аркуші</title>
+    <title><%= poem.title %> - <%= poet.name %> - Аркуші</title>
     <link href="/css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        #favorite-btn.favorited #favorite-icon {
+            animation: heart-burst .8s ease-in-out;
+        }
+
+        @keyframes heart-burst {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body class="bg-stone-50">
 
-    <!-- Header -->
-    <header class="bg-white border-b border-stone-200">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <a href="/">
-                    <img src="/icons/Logo-small.svg" alt="Логотип Аркуші">
-                </a>
-                
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="/poets" class="text-zinc-900 font-medium relative">
-                        Вірші та поети
-                        <span class="absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-1 h-1 bg-red-500 rounded-full"></span>
-                    </a>
-                    <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Колекції</a>
-                    <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Про нас</a>
-                </nav>
-
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#" class="text-zinc-900 font-medium whitespace-nowrap">Зареєструватись</a>
-                    <a href="#" class="px-4 py-2 border border-red-500 rounded-lg text-red-500 font-medium hover:bg-red-50 whitespace-nowrap">Задонатити на проект</a>
-                    <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-6 w-6"></a>
-                    <a href="#"><img src="/icons/Icon=Twitter, State=Default.svg" alt="Twitter" class="h-6 w-6"></a>
-                </div>
-                
-                <div class="md:hidden">
-                    <button class="p-2">
-                        <img src="/icons/Icon=Menu, State=Default.svg" alt="Menu" class="h-6 w-6">
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/header-inner') %>
 
     <main class="container mx-auto px-4 py-16">
-        <div class="max-w-3xl mx-auto">
-            <div class="mb-8 text-center">
-                 <a href="/poets/<%= poet.slug %>" class="text-red-600 hover:underline"><%= poet.firstName %> <%= poet.lastName %></a>
-                 <span class="text-stone-400 mx-2">/</span>
-                 <span class="text-stone-500"><%= collection.name %></span>
+        <div class="max-w-2xl mx-auto">
+            <!-- Breadcrumbs -->
+            <div class="mb-8 text-center text-stone-500">
+                <a href="/poets/<%= poet.slug %>" class="hover:text-zinc-900 transition-colors"><%= poet.name %></a>
+                <span class="mx-2">/</span>
+                <a href="#" class="hover:text-zinc-900 transition-colors"><%= collection.name %></a>
+                <span class="mx-2">/</span>
+                <span class="text-zinc-900 font-medium"><%= poem.title %></span>
             </div>
-            <h1 class="text-4xl font-bold text-center mb-8"><%= poem.title %></h1>
-            <div class="text-lg leading-loose space-y-2 text-center">
-                <% poem.content.forEach(line => { %>
-                    <p><%= line %></p>
-                <% }) %>
+
+            <h1 class="text-4xl font-bold text-center mb-12 tracking-tight"><%= poem.title %></h1>
+            
+            <div class="text-lg leading-loose text-zinc-900 whitespace-pre-line font-serif text-center">
+                <%= poem.content %>
+            </div>
+
+            <!-- Actions -->
+            <div class="mt-16 flex justify-center items-center gap-4 relative">
+                <button id="favorite-btn" class="flex items-center gap-2 text-stone-500 hover:text-zinc-900 transition-colors">
+                    <img src="/icons/Icon=like_outline, State=Default.svg" alt="Favorite" class="h-6 w-6" id="favorite-icon">
+                    <span id="favorite-text">Сподобалось</span>
+                </button>
+                <div class="w-px h-6 bg-stone-200"></div>
+                <button id="share-btn" class="flex items-center gap-2 text-stone-500 hover:text-zinc-900 transition-colors">
+                    <img src="/icons/Icon=share, State=Default.svg" alt="Share" class="h-6 w-6">
+                    <span>Поділитись</span>
+                </button>
+
+                <!-- Share Popup -->
+                <div id="share-popup" class="hidden absolute bottom-full mb-3 bg-white border border-stone-200 rounded-lg shadow-lg p-2">
+                    <div class="flex items-center gap-2">
+                        <a href="mailto:?subject=<%= encodeURIComponent(poem.title) %>&body=<%= encodeURIComponent(poet.name) %>%0A<%= encodeURIComponent(poem.title) %>%0A%0A<%= encodeURIComponent(poem.content) %>%0A%0A<%= encodeURIComponent(poet.name + ' - ' + collection.name) %>%0A<%= encodeURIComponent(new URL(req.originalUrl, 'http://' + req.headers.host).href) %>" class="p-2 hover:bg-stone-100 rounded-md"><img src="/icons/Icon=Mail, State=Default.svg" alt="Email" class="h-6 w-6"></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(new URL(req.originalUrl, 'http://' + req.headers.host).href) %>" target="_blank" class="p-2 hover:bg-stone-100 rounded-md"><img src="/icons/Icon=Facebook, State=Default.svg" alt="Facebook" class="h-6 w-6"></a>
+                        <a href="https://twitter.com/intent/tweet?url=<%= encodeURIComponent(new URL(req.originalUrl, 'http://' + req.headers.host).href) %>&text=<%= encodeURIComponent(poet.name + ' - ' + poem.title) %>" target="_blank" class="p-2 hover:bg-stone-100 rounded-md"><img src="/icons/Icon=X.svg" alt="X" class="h-6 w-6"></a>
+                        <a href="https://wa.me/?text=<%= encodeURIComponent(poet.name + ' - ' + poem.title + ':\n' + new URL(req.originalUrl, 'http://' + req.headers.host).href) %>" target="_blank" class="p-2 hover:bg-stone-100 rounded-md"><img src="/icons/Icon=Whatsapp.svg" alt="Whatsapp" class="h-6 w-6"></a>
+                        <a href="https://t.me/share/url?url=<%= encodeURIComponent(new URL(req.originalUrl, 'http://' + req.headers.host).href) %>&text=<%= encodeURIComponent(poet.name + ' - ' + poem.title) %>" target="_blank" class="p-2 hover:bg-stone-100 rounded-md"><img src="/icons/Icon=Telegram.svg" alt="Telegram" class="h-6 w-6"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const favoriteBtn = document.getElementById('favorite-btn');
+            const favoriteIcon = document.getElementById('favorite-icon');
+            const favoriteText = document.getElementById('favorite-text');
+            const shareBtn = document.getElementById('share-btn');
+            const sharePopup = document.getElementById('share-popup');
+    
+            const poemId = window.location.pathname;
+            let favorites = JSON.parse(localStorage.getItem('favorites') || '{}');
+    
+            function updateFavoriteStatus() {
+                if (favorites[poemId]) {
+                    favoriteIcon.src = '/icons/Icon=like_filled, State=Default.svg';
+                    favoriteText.textContent = 'Улюблений';
+                    favoriteBtn.classList.add('favorited', 'text-red-500');
+                } else {
+                    favoriteIcon.src = '/icons/Icon=like_outline, State=Default.svg';
+                    favoriteText.textContent = 'Сподобалось';
+                    favoriteBtn.classList.remove('favorited', 'text-red-500');
+                }
+            }
+            
+            updateFavoriteStatus();
+    
+            favoriteBtn.addEventListener('click', () => {
+                favorites[poemId] = !favorites[poemId];
+                if (!favorites[poemId]) {
+                    delete favorites[poemId];
+                }
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                updateFavoriteStatus();
+    
+                if (favorites[poemId]) {
+                    // Trigger animation
+                    favoriteBtn.classList.add('favorited');
+                    setTimeout(() => {
+                        favoriteBtn.classList.remove('favorited');
+                    }, 800)
+                }
+            });
+    
+            shareBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sharePopup.classList.toggle('hidden');
+            });
+    
+            document.addEventListener('click', (e) => {
+                if (!sharePopup.contains(e.target) && !shareBtn.contains(e.target)) {
+                    sharePopup.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    
+    <%- include('partials/footer') %>
 
 </body>
 </html> 
