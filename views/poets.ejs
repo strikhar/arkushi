@@ -14,26 +14,31 @@
     <!-- Header -->
     <header class="bg-white border-b border-stone-200">
         <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center gap-14">
-                    <a href="/">
-                        <img src="/icons/Logo.svg" alt="Аркуші" class="h-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/">
+                    <img src="/icons/Logo-small.svg" alt="Логотип Аркуші">
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/poets" class="text-zinc-900 font-medium relative">
+                        Вірші та поети
+                        <span class="absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-1 h-1 bg-red-500 rounded-full"></span>
                     </a>
-                    <nav class="hidden md:flex items-center gap-8">
-                        <a href="/poets" class="text-zinc-900 font-medium">Вірші та поети</a>
-                        <a href="#" class="text-zinc-900 font-medium">Колекції</a>
-                        <a href="#" class="text-zinc-900 font-medium">Про нас</a>
-                    </nav>
+                    <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Колекції</a>
+                    <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Про нас</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-6 w-6"></a>
+                    <a href="#"><img src="/icons/Icon=Twitter, State=Default.svg" alt="Twitter" class="h-6 w-6"></a>
+                    <a href="#" class="text-zinc-900 font-medium whitespace-nowrap">Зареєструватись</a>
+                    <a href="#" class="px-4 py-2 border border-red-500 rounded-lg text-red-500 font-medium hover:bg-red-50 whitespace-nowrap">Задонатити на проект</a>
                 </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#">
-                        <img src="/icons/Icon=Telegram, State=Default.svg" alt="Telegram" class="h-4">
-                    </a>
-                    <a href="#">
-                        <img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-4">
-                    </a>
-                    <a href="#" class="text-zinc-900 font-medium">Зареєструватись</a>
-                    <a href="#" class="text-red-600 font-medium border border-stone-200 rounded-md px-4 py-2 hover:bg-red-50">Задонатити на проєкт</a>
+                
+                <div class="md:hidden">
+                    <button class="p-2">
+                        <img src="/icons/Icon=Menu, State=Default.svg" alt="Menu" class="h-6 w-6">
+                    </button>
                 </div>
             </div>
         </div>
