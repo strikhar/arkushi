@@ -20,100 +20,57 @@
 <body class="bg-white">
     <div class="flex flex-col items-center">
         <!-- Header -->
-        <header class="bg-white w-full">
-            <div class="flex flex-col items-center relative">
-                <div class="flex flex-col items-center gap-[60px] pb-[60px]">
-                    <div class="bg-white h-[174px] relative w-full max-w-[1440px]">
-                        <div class="absolute top-1/2 -translate-y-1/2 left-0 w-[600px] h-[1px] bg-no-repeat" style="background-image: url('/icons/line-secondary-1.svg');"></div>
-                        <div class="absolute top-1/2 -translate-y-1/2 right-0 w-[600px] h-[1px] bg-no-repeat" style="background-image: url('/icons/line-secondary-2.svg');"></div>
-                        
-                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-[15px]">
-                            <div class="flex flex-col gap-[18px] items-center">
-                                <img src="/icons/Logo.svg" alt="Логотип Аркуші" class="h-20 w-20">
-                                <p class="text-center text-[#151515] text-[17px] w-72">Найбільша віртуальна бібліотека української поезії</p>
-                            </div>
-                        </div>
+        <header class="bg-white border-b border-stone-200 w-full">
+            <div class="container mx-auto px-4">
+                <div class="relative flex items-center justify-between h-20">
+                    <!-- Left Navigation -->
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a href="/poets" class="text-stone-500 hover:text-zinc-900 font-medium">Вірші та поети</a>
+                        <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Колекції</a>
+                        <a href="#" class="text-stone-500 hover:text-zinc-900 font-medium">Про нас</a>
+                    </nav>
 
-                        <nav class="absolute top-1/2 -translate-y-1/2 left-[205px]">
-                            <div class="flex flex-row gap-[34px] items-center">
-                                <a href="/" class="text-zinc-900">Головна</a>
-                                <a href="/poets" class="text-stone-500 hover:text-zinc-900">Вірші та поети</a>
-                                <a href="#" class="text-[#151515] text-[15px] font-medium">Колекції</a>
-                                <a href="#" class="text-[#151515] text-[15px] font-medium">Про нас</a>
-                            </div>
-                        </nav>
-
-                        <div class="absolute top-4 right-[140px]">
-                            <div class="flex flex-row gap-[34px] items-center">
-                                <a href="#" class="text-[#151515] text-[15px] font-medium">Зареєструватись</a>
-                                <a href="#" class="bg-white border border-[#e7decf] rounded-md px-[18px] py-3 text-[#f92e35] text-[15px] font-medium">Задонатити на проєкт</a>
-                                <a href="#"><img src="/icons/Icon=Facebook, State=Default.svg" alt="Facebook" class="h-4 w-4"></a>
-                                <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-4 w-4"></a>
-                            </div>
-                        </div>
+                    <!-- Centered Logo -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <a href="/">
+                            <img src="/icons/Logo.svg" alt="Логотип Аркуші" class="h-12">
+                        </a>
                     </div>
 
-                    <!-- Featured section -->
-                    <section class="w-full max-w-[1160px] px-[140px]">
-                        <div class="flex flex-row items-start justify-between">
-                            <!-- Featured Poem -->
-                            <div class="w-[670px]">
-                                <div class="flex flex-col gap-5 items-start">
-                                    <div class="flex flex-row items-center justify-between w-full">
-                                        <h2 class="text-[#a29379] text-[14px] tracking-[1px] uppercase">Вірш дня</h2>
-                                        <div class="flex flex-row gap-3">
-                                            <button class="bg-[#fbf8f2] rounded-full p-[6px]"><img src="/icons/Icon=Favourite, State=Default.svg" alt="Улюблене" class="h-5 w-5"></button>
-                                            <button class="bg-[#fbf8f2] rounded-full p-[6px]"><img src="/icons/Icon=Share, State=Default.svg" alt="Поділитись" class="h-5 w-5"></button>
-                                        </div>
-                                    </div>
-                                    <div class="h-[205px] overflow-hidden rounded-2xl w-full relative">
-                                        <img src="/images/home/image_d5f949.jpg" alt="Featured poem background" class="w-full h-full object-cover">
-                                        <div class="absolute bottom-0 right-0 bg-[rgba(21,21,21,0.4)] text-white text-[8px] px-2.5 rounded-tl-md">
-                                            <p class="leading-[24px]">Автор: Анатолій Криволап</p>
-                                        </div>
-                                    </div>
-                                    <div class="relative w-full">
-                                        <div class="flex flex-col gap-3 items-start">
-                                            <a href="#" class="text-[#f92e35] text-[12px] font-semibold tracking-[0.9px] uppercase">Аттила Могильний</a>
-                                            <h3 class="text-[#151515] text-[38px] font-bold leading-[44px]">Зима нашого міста</h3>
-                                            <div class="text-[#151515] text-[18px] leading-[28px]">
-                                                <p>Напевно, ми скоро забудемо</p>
-                                                <p>давні казки і в ніч</p>
-                                                <p>вийдемо так непомітно,</p>
-                                                <p>як падає світло з вікон,</p>
-                                                <p class="leading-[46px]">і так, як під чорними вежами</p>
-                                                <p>перша шеренга русичів</p>
-                                            </div>
-                                            <div class="absolute bottom-0 h-[60px] w-full bg-gradient-to-t from-white to-transparent"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Banners -->
-                            <div class="bg-[#fbf8f2] h-[544px] w-[385px] rounded-2xl p-5 relative overflow-hidden">
-                                <p class="text-[#151515] text-[15px] leading-[24px]">Завантажуйте наші додатки:</p>
-                                <div class="flex flex-row gap-1.5 mt-4">
-                                    <a href="#" class="flex items-center gap-2 bg-white border border-[#e7decf] rounded-md px-[18px] py-3">
-                                        <img src="/icons/Icon=Apple, State=Default.svg" alt="Apple" class="h-4 w-4">
-                                        <span class="text-[#151515] text-[14px] font-medium">Аркуші на iOS</span>
-                                    </a>
-                                    <a href="#" class="flex items-center gap-2 bg-white border border-[#e7decf] rounded-md px-[18px] py-3">
-                                        <img src="/icons/Icon=Android, State=Default.svg" alt="Android" class="h-4 w-4">
-                                        <span class="text-[#151515] text-[14px] font-medium">Аркуші на Android</span>
-                                    </a>
-                                </div>
-                                <div class="absolute -bottom-12 -left-4">
-                                    <img src="/images/home/image_9a3400.png" class="h-auto w-auto">
-                                </div>
-                                <div class="absolute -bottom-12 right-0">
-                                    <img src="/images/home/image_0ce75f.png" class="h-auto w-auto">
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <!-- Right Actions -->
+                    <div class="hidden md:flex items-center gap-6">
+                        <a href="#" class="text-zinc-900 font-medium whitespace-nowrap">Зареєструватись</a>
+                        <a href="#" class="px-4 py-2 border border-red-500 rounded-lg text-red-500 font-medium hover:bg-red-50 whitespace-nowrap">Задонатити на проект</a>
+                        <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-6 w-6"></a>
+                        <a href="#"><img src="/icons/Icon=Twitter, State=Default.svg" alt="Twitter" class="h-6 w-6"></a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button class="p-2">
+                            <img src="/icons/Icon=Menu, State=Default.svg" alt="Menu" class="h-6 w-6">
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
+
+        <!-- Hero Section -->
+        <main class="relative bg-zinc-900 text-white text-center py-40 w-full">
+            <div class="absolute inset-0">
+                <img src="/images/home/image_d5f949.jpg" alt="Background" class="w-full h-full object-cover opacity-20">
+            </div>
+            <div class="relative container mx-auto px-4">
+                <div class="flex flex-col items-center gap-6">
+                    <h1 class="text-6xl font-bold">Відкрийте світ<br>української поезії</h1>
+                    <p class="text-xl max-w-2xl">Найбільша колекція віршів українських поетів, від класиків до сучасності. Читайте, надихайтесь, та діліться з друзями.</p>
+                    <div class="flex gap-4 mt-4">
+                        <button class="bg-red-500 text-white px-8 py-3 rounded-full font-bold">Випадковий вірш</button>
+                        <button class="bg-white text-zinc-900 px-8 py-3 rounded-full font-bold">Пошук</button>
+                    </div>
+                </div>
+            </div>
+        </main>
 
         <!-- Main Content -->
         <main class="w-full">
