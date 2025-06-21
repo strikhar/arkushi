@@ -61,9 +61,11 @@
     <main class="container mx-auto px-4 py-12">
         <!-- Poet Info -->
         <section class="flex flex-col md:flex-row items-center md:items-start gap-10 mb-10">
-            <img src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="w-48 h-48 rounded-full object-cover">
+            <div class="flex-shrink-0">
+                <img id="poet-image" src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="w-48 h-48 rounded-full object-cover shadow-lg cursor-pointer">
+            </div>
             <div class="text-center md:text-left">
-                <h1 class="text-4xl font-bold text-zinc-900"><%= poet.firstName %> <%= poet.lastName %></h1>
+                <h1 class="text-5xl font-bold text-zinc-900"><%= poet.firstName %> <%= poet.lastName %></h1>
                 <p class="text-lg text-stone-500 mt-1"><%= poet.birthYear %> - <%= poet.deathYear || 'сьогодення' %></p>
                 <div class="prose max-w-none text-zinc-800 mt-4">
                     <p><%= poet.bio %></p>
@@ -76,20 +78,59 @@
             <h2 class="text-3xl font-bold text-zinc-900 mb-6">Збірки та вірші</h2>
             <div class="space-y-8">
                 <% collections.forEach(collection => { %>
-                    <div>
-                        <h3 class="text-xl font-semibold text-red-600 uppercase tracking-wider mb-4"><%= collection.name %></h3>
-                        <ul class="space-y-2">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-zinc-900 mb-4"><%= collection.name %></h3>
+                        <ul class="list-disc list-inside text-stone-700 space-y-2">
                             <% collection.poems.forEach(poem => { %>
-                                <li>
-                                    <a href="#" class="text-lg text-zinc-800 hover:text-red-600"><%= poem.title %></a>
-                                </li>
-                            <% }); %>
+                                <li><a href="<%= poem.url %>" class="hover:underline"><%= poem.title %></a></li>
+                            <% }) %>
                         </ul>
                     </div>
                 <% }); %>
             </div>
         </section>
     </main>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center hidden z-50 p-4">
+        <div class="relative">
+            <img src="<%= poet.imageUrl %>" alt="<%= poet.firstName %> <%= poet.lastName %>" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-xl">
+            <button id="close-modal-btn" class="absolute -top-2 -right-2 text-white bg-zinc-900 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const poetImage = document.getElementById('poet-image');
+            const modal = document.getElementById('image-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            if (poetImage && modal && closeModalBtn) {
+                const openModal = () => {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                };
+
+                poetImage.addEventListener('click', openModal);
+                closeModalBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html> 

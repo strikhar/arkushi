@@ -56,18 +56,18 @@
         </header>
 
         <!-- Hero Section -->
-        <main class="relative bg-zinc-900 text-white text-center py-40 w-full">
-            <div class="absolute inset-0">
-                <img src="/images/home/image_d5f949.jpg" alt="Background" class="w-full h-full object-cover opacity-20">
-            </div>
-            <div class="relative container mx-auto px-4">
-                <div class="flex flex-col items-center gap-6">
-                    <h1 class="text-6xl font-bold">Відкрийте світ<br>української поезії</h1>
-                    <p class="text-xl max-w-2xl">Найбільша колекція віршів українських поетів, від класиків до сучасності. Читайте, надихайтесь, та діліться з друзями.</p>
-                    <div class="flex gap-4 mt-4">
-                        <button class="bg-red-500 text-white px-8 py-3 rounded-full font-bold">Випадковий вірш</button>
-                        <button class="bg-white text-zinc-900 px-8 py-3 rounded-full font-bold">Пошук</button>
-                    </div>
+        <main class="relative text-center py-20 md:py-40 overflow-hidden w-full bg-cover bg-center" style="background-image: url('/images/home/image_d5f949.jpg');">
+            <div class="absolute inset-0 bg-white opacity-80"></div>
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-6xl font-bold text-zinc-900 leading-tight">
+                    Найбільша віртуальна<br>бібліотека української поезії
+                </h1>
+                <p class="text-lg text-stone-500 mt-4 max-w-2xl mx-auto">
+                    Відкрийте для себе тисячі віршів від класиків та сучасних авторів. Пориньте у світ українського слова.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="/poets" class="px-8 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700">Переглянути поетів</a>
+                    <a href="/poem/random" class="px-8 py-3 bg-stone-100 text-zinc-900 font-medium rounded-lg hover:bg-stone-200">Випадковий вірш</a>
                 </div>
             </div>
         </main>
@@ -145,37 +145,30 @@
             </section>
             
             <!-- Featured Poets -->
-            <section class="bg-white py-[100px]">
-                <div class="max-w-[1160px] mx-auto px-5">
-                    <div class="flex flex-col items-center gap-10">
-                        <div class="text-center">
-                            <h2 class="text-4xl font-bold text-zinc-900">Поети, що надихають</h2>
-                            <p class="text-lg text-stone-500 mt-2">Відкрийте для себе світи видатних українських митців</p>
-                        </div>
-                        <!-- Featured Poets Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <!-- Placeholder Poet 1 -->
-                            <div class="flex flex-col items-center text-center">
-                                <img src="/images/home/image_9a3400.png" alt="Тарас Шевченко" class="w-40 h-40 rounded-full object-cover mb-4">
-                                <h3 class="text-xl font-bold text-zinc-900">Тарас Шевченко</h3>
-                                <p class="text-stone-500">1814 - 1861</p>
-                            </div>
-                            <!-- Placeholder Poet 2 -->
-                            <div class="flex flex-col items-center text-center">
-                                <img src="/images/home/image_0ce75f.png" alt="Леся Українка" class="w-40 h-40 rounded-full object-cover mb-4">
-                                <h3 class="text-xl font-bold text-zinc-900">Леся Українка</h3>
-                                <p class="text-stone-500">1871 - 1913</p>
-                            </div>
-                            <!-- Placeholder Poet 3 -->
-                            <div class="flex flex-col items-center text-center">
-                                <img src="/images/home/image_d5f949.jpg" alt="Іван Франко" class="w-40 h-40 rounded-full object-cover mb-4">
-                                <h3 class="text-xl font-bold text-zinc-900">Іван Франко</h3>
-                                <p class="text-stone-500">1856 - 1916</p>
-                            </div>
-                        </div>
-                        <a href="/poets" class="flex items-center justify-center gap-2.5 px-6 py-4 rounded-lg border border-stone-300 hover:bg-stone-50">
-                            <div class="text-base font-medium leading-normal text-zinc-900">Показати всіх</div>
+            <section class="bg-white py-24">
+                <div class="container mx-auto px-4 max-w-[1160px]">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-3xl font-bold text-zinc-900">Вибрані поети</h2>
+                        <% if (typeof totalPoets !== 'undefined' && totalPoets > 0) { %>
+                        <a href="/poets" class="text-sm font-medium text-stone-500 hover:text-zinc-900">
+                            <%= totalPoets %> поетів >
                         </a>
+                        <% } %>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <% if (typeof featuredPoets !== 'undefined' && featuredPoets.length) { %>
+                            <% featuredPoets.forEach(poet => { %>
+                                 <a href="/poets/<%= encodeURIComponent(poet.slug) %>" class="block rounded-lg overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow duration-300">
+                                     <img src="<%= poet.imageUrl %>" alt="<%= poet.name %>" class="w-full h-56 object-cover">
+                                     <div class="p-6 bg-white">
+                                         <h3 class="text-xl font-bold text-zinc-900"><%= poet.name %></h3>
+                                         <p class="text-stone-500 mt-2 text-sm line-clamp-4"><%= poet.bio %></p>
+                                     </div>
+                                 </a>
+                            <% }) %>
+                        <% } else { %>
+                            <p>Не вдалося завантажити вибраних поетів.</p>
+                        <% } %>
                     </div>
                 </div>
             </section>
