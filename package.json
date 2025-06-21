@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build:css": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css",
-    "watch:css": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
+    "build:css": "./node_modules/.bin/tailwindcss -i ./src/input.css -o ./public/css/style.css",
+    "watch:css": "./node_modules/.bin/tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
     "dev": "concurrently \"npm:watch:css\" \"nodemon server.js\""
   },
   "keywords": [],
