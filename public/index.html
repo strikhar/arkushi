@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аркуші - Українська поезія</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom font-face can be added here if needed */
+        /* For this example, I'll rely on system fonts and Google Fonts */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* You would define your custom fonts like NAMU:1930 and MacPaw Fixel here if you have the files */
+    </style>
+</head>
+<body class="bg-white">
+    <div class="flex flex-col items-center">
+        <!-- Header -->
+        <header class="bg-white w-full">
+            <div class="flex flex-col items-center relative">
+                <div class="flex flex-col items-center gap-[60px] pb-[60px]">
+                    <div class="bg-white h-[174px] relative w-full max-w-[1440px]">
+                        <div class="absolute top-1/2 -translate-y-1/2 left-0 w-[600px] h-[1px] bg-no-repeat" style="background-image: url('/icons/line-secondary-1.svg');"></div>
+                        <div class="absolute top-1/2 -translate-y-1/2 right-0 w-[600px] h-[1px] bg-no-repeat" style="background-image: url('/icons/line-secondary-2.svg');"></div>
+                        
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-[15px]">
+                            <div class="flex flex-col gap-[18px] items-center">
+                                <img src="/icons/logo-mark.svg" alt="Логотип Аркуші" class="h-20 w-20">
+                                <p class="text-center text-[#151515] text-[17px] w-72">Найбільша віртуальна бібліотека української поезії</p>
+                            </div>
+                        </div>
+
+                        <nav class="absolute top-1/2 -translate-y-1/2 left-[205px]">
+                            <div class="flex flex-row gap-[34px] items-center">
+                                <a href="#" class="text-[#151515] text-[15px] font-medium">Вірші та поети</a>
+                                <a href="#" class="text-[#151515] text-[15px] font-medium">Колекції</a>
+                                <a href="#" class="text-[#151515] text-[15px] font-medium">Про нас</a>
+                            </div>
+                        </nav>
+
+                        <div class="absolute top-4 right-[140px]">
+                            <div class="flex flex-row gap-[34px] items-center">
+                                <a href="#" class="text-[#151515] text-[15px] font-medium">Зареєструватись</a>
+                                <a href="#" class="bg-white border border-[#e7decf] rounded-md px-[18px] py-3 text-[#f92e35] text-[15px] font-medium">Задонатити на проєкт</a>
+                                <a href="#"><img src="/icons/Icon=Facebook, State=Default.svg" alt="Facebook" class="h-4 w-4"></a>
+                                <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-4 w-4"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured section -->
+                    <section class="w-full max-w-[1160px] px-[140px]">
+                        <div class="flex flex-row items-start justify-between">
+                            <!-- Featured Poem -->
+                            <div class="w-[670px]">
+                                <div class="flex flex-col gap-5 items-start">
+                                    <div class="flex flex-row items-center justify-between w-full">
+                                        <h2 class="text-[#a29379] text-[14px] tracking-[1px] uppercase">Вірш дня</h2>
+                                        <div class="flex flex-row gap-3">
+                                            <button class="bg-[#fbf8f2] rounded-full p-[6px]"><img src="/icons/Icon=Favourite, State=Default.svg" alt="Улюблене" class="h-5 w-5"></button>
+                                            <button class="bg-[#fbf8f2] rounded-full p-[6px]"><img src="/icons/Icon=Share, State=Default.svg" alt="Поділитись" class="h-5 w-5"></button>
+                                        </div>
+                                    </div>
+                                    <div class="h-[205px] overflow-hidden rounded-2xl w-full relative">
+                                        <img src="/images/home/image_d5f949.jpg" alt="Featured poem background" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 right-0 bg-[rgba(21,21,21,0.4)] text-white text-[8px] px-2.5 rounded-tl-md">
+                                            <p class="leading-[24px]">Автор: Анатолій Криволап</p>
+                                        </div>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <div class="flex flex-col gap-3 items-start">
+                                            <a href="#" class="text-[#f92e35] text-[12px] font-semibold tracking-[0.9px] uppercase">Аттила Могильний</a>
+                                            <h3 class="text-[#151515] text-[38px] font-bold leading-[44px]">Зима нашого міста</h3>
+                                            <div class="text-[#151515] text-[18px] leading-[28px]">
+                                                <p>Напевно, ми скоро забудемо</p>
+                                                <p>давні казки і в ніч</p>
+                                                <p>вийдемо так непомітно,</p>
+                                                <p>як падає світло з вікон,</p>
+                                                <p class="leading-[46px]">і так, як під чорними вежами</p>
+                                                <p>перша шеренга русичів</p>
+                                            </div>
+                                            <div class="absolute bottom-0 h-[60px] w-full bg-gradient-to-t from-white to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Banners -->
+                            <div class="bg-[#fbf8f2] h-[544px] w-[385px] rounded-2xl p-5 relative overflow-hidden">
+                                <p class="text-[#151515] text-[15px] leading-[24px]">Завантажуйте наші додатки:</p>
+                                <div class="flex flex-row gap-1.5 mt-4">
+                                    <a href="#" class="flex items-center gap-2 bg-white border border-[#e7decf] rounded-md px-[18px] py-3">
+                                        <img src="/icons/Icon=Apple, State=Default.svg" alt="Apple" class="h-4 w-4">
+                                        <span class="text-[#151515] text-[14px] font-medium">Аркуші на iOS</span>
+                                    </a>
+                                    <a href="#" class="flex items-center gap-2 bg-white border border-[#e7decf] rounded-md px-[18px] py-3">
+                                        <img src="/icons/Icon=Android, State=Default.svg" alt="Android" class="h-4 w-4">
+                                        <span class="text-[#151515] text-[14px] font-medium">Аркуші на Android</span>
+                                    </a>
+                                </div>
+                                <div class="absolute -bottom-12 -left-4">
+                                    <img src="/images/home/image_9a3400.png" class="h-auto w-auto">
+                                </div>
+                                <div class="absolute -bottom-12 right-0">
+                                    <img src="/images/home/image_0ce75f.png" class="h-auto w-auto">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="w-full">
+            <!-- Random Poems -->
+            <section class="bg-[#fbf8f2] py-[100px]">
+                <div class="max-w-[1160px] mx-auto px-5">
+                    <div class="flex flex-col gap-7 items-center">
+                        <div class="w-full">
+                            <div class="flex flex-col gap-5 items-start">
+                                <div class="flex items-center justify-between w-full">
+                                    <h2 class="text-[#151515] text-[28px] font-bold">Випадкові вірші</h2>
+                                    <a href="#" class="flex items-center gap-0.5 text-[#a29379] text-[14px] font-medium">
+                                        <span>4000+ віршів</span>
+                                        <img src="/icons/Icon=Chevron, State=Default.svg" alt="Chevron" class="h-4 w-4 transform -rotate-90">
+                                    </a>
+                                </div>
+                                <div class="h-[1px] w-full bg-no-repeat bg-center" style="background-image: url('/icons/line-primary.svg');"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                            <!-- Placeholder Poem 1 -->
+                            <div class="bg-white rounded-2xl p-7 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                               <div class="flex flex-col gap-2 items-start h-full">
+                                    <a href="#" class="text-[#f92e35] text-xs font-semibold uppercase tracking-wide">Богдан Рубчак</a>
+                                    <h3 class="text-[#151515] text-2xl font-bold">Дівчині без країни</h3>
+                                    <div class="text-[#151515] text-base leading-7 relative overflow-hidden h-[168px]">
+                                        <p>Добра сестро птахів,</p>
+                                        <p>дівчино без спогаду,</p>
+                                        <p>щоночі дивишся</p>
+                                        <p>крізь спів чужих каламуть,</p>
+                                        <p>щоранку дивишся</p>
+                                        <p>крізь вій золоту погоду,</p>
+                                        <div class="absolute bottom-0 h-16 w-full bg-gradient-to-t from-white to-transparent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Placeholder Poem 2 -->
+                            <div class="bg-white rounded-2xl p-7 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                               <div class="flex flex-col gap-2 items-start h-full">
+                                    <a href="#" class="text-[#f92e35] text-xs font-semibold uppercase tracking-wide">Катерина Бабкіна</a>
+                                    <h3 class="text-[#151515] text-2xl font-bold">***</h3>
+                                    <div class="text-[#151515] text-base leading-7 relative overflow-hidden h-[168px]">
+                                        <p>Мій прихисток – дім із пелюсток й листків,</p>
+                                        <p>із диких троянд несміливих ростків;</p>
+                                        <p>із ірисів диких і лілій, з люпин,</p>
+                                        <p>з тендітних конвалій, із різних</p>
+                                         <div class="absolute bottom-0 h-16 w-full bg-gradient-to-t from-white to-transparent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Placeholder Poem 3 -->
+                           <div class="bg-white rounded-2xl p-7 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex flex-col gap-2 items-start h-full">
+                                    <a href="#" class="text-[#f92e35] text-xs font-semibold uppercase tracking-wide">Вадим Фішер</a>
+                                    <h3 class="text-[#151515] text-2xl font-bold">Анна і Антон (III)</h3>
+                                    <div class="text-[#151515] text-base leading-7 relative overflow-hidden h-[168px]">
+                                        <p>Коли Анна з'явилася в цьому місті,</p>
+                                        <p>прибула до когось на зимове свято</p>
+                                        <p>і, мов королева, ішла по вечірці,</p>
+                                        <p>немов по алеї, відчула раптом</p>
+                                        <div class="absolute bottom-0 h-16 w-full bg-gradient-to-t from-white to-transparent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="flex items-center gap-1 text-[#151515] text-[16px] leading-[24px]">
+                            <img src="/icons/Icon=Random, State=Default.svg" alt="Random" class="h-4 w-4">
+                            <span>Згенерувати 3 випадкові вірші</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Featured Poets -->
+            <section class="bg-white py-[100px]">
+                <div class="max-w-[1160px] mx-auto px-5">
+                    <div class="flex flex-col gap-7 items-center">
+                         <div class="w-full">
+                            <div class="flex flex-col gap-5 items-start">
+                                <div class="flex items-center justify-between w-full">
+                                    <h2 class="text-[#151515] text-[28px] font-bold">Вибрані поети</h2>
+                                    <a href="#" class="flex items-center gap-0.5 text-[#a29379] text-[14px] font-medium">
+                                        <span>79 поетів</span>
+                                        <img src="/icons/Icon=Chevron, State=Default.svg" alt="Chevron" class="h-4 w-4 transform -rotate-90">
+                                    </a>
+                                </div>
+                                <div class="h-[1px] w-full bg-no-repeat bg-center" style="background-image: url('/icons/line-primary.svg');"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                            <!-- Placeholder Poet 1 -->
+                            <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)] overflow-hidden">
+                                <img src="/images/home/poet-1.jpg" alt="Юрій Тарнавський" class="w-full h-[189px] object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Юрій Тарнавський</h3>
+                                    <p class="text-[#151515] text-[16px] leading-[28px] mt-2.5 h-28 overflow-hidden">Український та американський письменник і лінґвіст, один із засновників нью-йоркської Групи аванґардних українських...</p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Poet 2 -->
+                            <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)] overflow-hidden">
+                                <img src="/images/home/poet-2.jpg" alt="Віра Вовк" class="w-full h-[189px] object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Віра Вовк</h3>
+                                    <p class="text-[#151515] text-[16px] leading-[28px] mt-2.5 h-28 overflow-hidden">Українська письменниця, літературознавиця, прозаїк, драматург і перекладачка. Писала українською, німецькою і...</p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Poet 3 -->
+                            <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)] overflow-hidden">
+                                <img src="/images/home/poet-3.jpg" alt="Євген Гребінка" class="w-full h-[189px] object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Євген Гребінка</h3>
+                                    <p class="text-[#151515] text-[16px] leading-[28px] mt-2.5 h-28 overflow-hidden">Видатний український письменник, байкар, педагог, видавець.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collections -->
+            <section class="bg-[#fbf8f2] py-[100px]">
+                <div class="max-w-[1160px] mx-auto px-5">
+                    <div class="flex flex-col gap-7 items-center">
+                        <div class="w-full">
+                           <div class="flex flex-col gap-5 items-start">
+                                <div class="flex items-center justify-between w-full">
+                                    <h2 class="text-[#151515] text-[28px] font-bold">Колекції</h2>
+                                    <a href="#" class="flex items-center gap-0.5 text-[#a29379] text-[14px] font-medium">
+                                        <span>14 колекцій</span>
+                                        <img src="/icons/Icon=Chevron, State=Default.svg" alt="Chevron" class="h-4 w-4 transform -rotate-90">
+                                    </a>
+                                </div>
+                                <div class="h-[1px] w-full bg-no-repeat bg-center" style="background-image: url('/icons/line-primary.svg');"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                            <!-- Placeholder Collection 1 -->
+                            <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Бароко</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Бароко (XVII - XVIII ст.) — напрям у літературі та мистецтві загалом, характерними ознаками якого був...</p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Collection 2 -->
+                             <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Романтизм</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Романтизм (XVIII - XIX ст.) — напрям у літературі та мистецтві загалом, характерними ознаками якого є оспівування природи, перевага емоцій над розумом, а почуттів над інтелектом, інтерес до о</p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Collection 3 -->
+                             <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Модернізм</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Модернізм (XIX - XX ст.) виник як реакція на численні революції, урбанізацію та індустріалізацію, на нього також вплинули жахи Першої світової війни. Ключовими ознаками модернізму є індивідуалізм, експеримент, абсурдність, символіз</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-4">
+                            <!-- Placeholder Collection 4 -->
+                            <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Наші 20-ті</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Наші 20-ті — термін, котрий створила українська літературознавиця Ярина Цимбал на позначення української літератури першої половини ХХ-го сторіччя замість поширених «Червоного ренесансу» або «Розстріляного відродження». На нашу думку, </p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Collection 5 -->
+                             <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Аванґард</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Аванґард (20-ті рр. ХХ ст.) — течія, визначальними ознаками якої було руйнування традиційних форм і канонів, інтуїтивне сприйняття дійсності, суб'єктивізм, динамізм, фр</p>
+                                </div>
+                            </div>
+                            <!-- Placeholder Collection 6 -->
+                             <div class="bg-white rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+                                <div class="flex justify-end pt-2">
+                                    <span class="bg-[#ffeff0] text-[#f92e35] text-xs font-medium px-3 py-1 rounded-bl-lg">Вибір редакції</span>
+                                </div>
+                                <div class="px-8 pb-7">
+                                    <h3 class="text-[#151515] text-[22px] font-bold">Неокласицизм</h3>
+                                    <p class="text-[#a29379] text-xs font-medium leading-6">20 поетів</p>
+                                    <p class="text-[#151515] text-base leading-7 mt-2 h-[84px] overflow-hidden">Неокласики (початок ХХ ст.) — група українських поетів та письменників-модерністів початку ХХ століття, означена літературознавцями як «гроно п'ятірне». Неокласицизм виник як спроба впорядкувати ха</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us -->
+            <section class="bg-[#232323] py-[100px]">
+                <div class="max-w-[1055px] mx-auto px-5">
+                    <div class="flex flex-col gap-6 items-start">
+                        <h2 class="text-white text-[28px] font-bold">Про нас</h2>
+                        <p class="text-white text-[17px] leading-[28px] w-[829px]">Ми — група волонтерів. "Аркуші" — неприбутковий проєкт. Ми працюємо над тим, аби відкривати нашим читачам унікальні сторінки української поезії та створювати простір для всіх, щоб творити, відчувати та ділитися поезією. Ми постійно збагачуємо нашу віртуальну бібліотеку новими іменами, зокрема робимо почутими голоси нової ґенерації української літератури.</p>
+                        <a href="#" class="flex items-center gap-0.5 text-[#f92e35] text-[14px] font-medium">
+                            <span>Читати далі</span>
+                            <img src="/icons/Icon=Chevron, State=Default.svg" alt="Chevron" class="h-4 w-4 transform -rotate-90">
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#232323] w-full border-t border-[#373737]">
+            <div class="max-w-[1160px] mx-auto px-5 py-3">
+                <div class="flex items-center justify-between">
+                    <p class="text-white text-xs leading-[30px]">© 2023 Аркуші</p>
+                    <div class="flex items-center gap-[34px]">
+                       <a href="#"><img src="/icons/Icon=Facebook, State=Default.svg" alt="Facebook" class="h-4 w-4"></a>
+                       <a href="#"><img src="/icons/Icon=Instagram, State=Default.svg" alt="Instagram" class="h-4 w-4"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,23 @@
+{
+  "name": "arkushi",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/css/style.css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
+    "dev": "concurrently \"npm:watch:css\" \"nodemon server.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10"
+  }
+}
